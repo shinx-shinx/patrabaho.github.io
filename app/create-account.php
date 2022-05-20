@@ -147,7 +147,7 @@ function authenticate($myemail, $mypass, $conn, $last_login) {
 					$_SESSION['myzip'] = $row['zip'];
 					$_SESSION['mybarangay'] = $row['barangay'];
 					$_SESSION['mydesc'] = $row['about'];
-					$_SESSION['avatar'] = $row['avatar'];
+					$_SESSION['company_logo'] = $row['company_logo'];
 					$_SESSION['myserv'] = $row['services'];
 					$_SESSION['myexp'] = $row['expertise'];
 					$_SESSION['lastlogin'] = $last_login;

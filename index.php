@@ -364,7 +364,7 @@ include 'constants/check-login.php';
                     $result = $stmt->fetchAll();
 
                     foreach($result as $row) {
-					$complogo = $row['avatar'];
+					$complogo = $row['company_logo'];
 					?>
 					<div class="col-xss-12 col-xs-6 col-sm-4 col-md-3">
 							
@@ -453,7 +453,7 @@ include 'constants/check-login.php';
                             $stmtb->execute();
                             $resultb = $stmtb->fetchAll();
 							foreach($resultb as $rowb) {
-							$complogo = $rowb['avatar'];
+							$complogo = $rowb['company_logo'];
 							$thecompname = $rowb['company'];	
 								
 							}

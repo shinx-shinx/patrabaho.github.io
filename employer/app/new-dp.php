@@ -12,7 +12,7 @@ header("location:../?r=3478");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 	
-    $stmt = $conn->prepare("UPDATE tbl_users SET avatar='$image' WHERE member_no='$myid'");
+    $stmt = $conn->prepare("UPDATE tbl_users SET company_logo='$image' WHERE member_no='$myid'");
     $stmt->execute();
 	
 	$stmt = $conn->prepare("SELECT * FROM tbl_users WHERE member_no='$myid'");
@@ -21,7 +21,7 @@ header("location:../?r=3478");
 
     foreach($result as $row)
     {
-     $_SESSION['avatar'] = $row['avatar'];
+     $_SESSION['company_logo'] = $row['company_logo'];
 	 header("location:../");
 	} 
 	

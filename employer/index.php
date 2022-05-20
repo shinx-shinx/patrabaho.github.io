@@ -246,7 +246,7 @@ if ($employer == true) {
 												<div class="form-group">
 													
 													<div class="col-sm-6 col-md-4">
-														<label>People</label>
+														<label>Number of Manpower</label>
 														<select name="people" required class="selectpicker show-tick form-control mb-15" data-live-search="false">
 															<option <?php if ($mypeople == "1-10") { print ' selected '; } ?> value="1-10">1-10</option>
 															<option <?php if ($mypeople == "11-100") { print ' selected '; } ?> value="11-100">11-100</option>

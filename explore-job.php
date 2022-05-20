@@ -81,7 +81,7 @@ $result = $stmt->fetchAll();
     foreach($result as $row)
     {
     $compname = $row['first_name'];
-	$complogo = $row['avatar'];
+	$complogo = $row['company_logo'];
 	$compbout = $row['about'];
 	}
 

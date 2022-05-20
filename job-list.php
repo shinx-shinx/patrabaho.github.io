@@ -348,7 +348,7 @@ $title = "Job List";
                                 $stmtb->execute();
                                 $resultb = $stmtb->fetchAll();
                                 foreach($resultb as $rowb) {
-								$complogo = $rowb['avatar'];
+								$complogo = $rowb['company_logo'];
 								$thecompname = $rowb['company'];	
 									
 								}

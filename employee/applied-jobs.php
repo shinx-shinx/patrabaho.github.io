@@ -310,7 +310,7 @@ $page = 1;
 									
 									foreach ($resultc as $rowc) {
 									$compname = $rowc['first_name'];
-									$complogo = $rowc['avatar'];	
+									$complogo = $rowc['company_logo'];	
 										
 									}
 									

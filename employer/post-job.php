@@ -233,7 +233,7 @@ header("location:../");
 												
 													<div class="form-group">
 														<label>Work Location</label>
-														<select name="barangay" required class="selectpicker show-tick form-control" data-live-search="true">
+														<select multiple name="barangay" required class="selectpicker show-tick form-control" data-live-search="true">
 															<option disabled value="">Select</option>
 						                                   <?php
 														   require '../constants/db_config.php';
