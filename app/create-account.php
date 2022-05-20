@@ -90,7 +90,7 @@ function register() {
     }
 }
 
-function authenticate($myemail, $mypass, $conn) {
+function authenticate($myemail, $mypass, $conn, $last_login) {
     try {
 		$stmt = $conn->prepare("SELECT * FROM tbl_users WHERE email = :myemail AND login = :mypassword");
 		$stmt->bindParam(':myemail', $myemail);
