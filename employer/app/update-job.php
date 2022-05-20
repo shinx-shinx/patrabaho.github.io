@@ -5,7 +5,7 @@ require '../constants/check-login.php';
 $job_id = $_POST['jobid'];
 $title  = ucwords($_POST['title']);
 $city  = ucwords($_POST['city']);
-$barangay = $_POST['barangay'];
+$barangay = $_POST['barangays'];
 $category = $_POST['category'];
 $type = $_POST['jobtype'];
 $exp = $_POST['experience'];

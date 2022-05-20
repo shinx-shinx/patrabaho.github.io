@@ -81,7 +81,7 @@ jQuery(function($) {
 
 	
 	
-})(jQuery);
+});
 
 
 

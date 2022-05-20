@@ -28,8 +28,8 @@ $page = 1;
 if (isset($_GET['barangay']) && ($_GET['category']) ){
 $cate = $_GET['category'];
 $barangay = $_GET['barangay'];	
-$query1 = "SELECT * FROM tbl_jobs WHERE category = :cate AND barangay = :barangay ORDER BY enc_id DESC LIMIT $page1,12";
-$query2 = "SELECT * FROM tbl_jobs WHERE category = :cate AND barangay = :barangay ORDER BY enc_id DESC";
+$query1 = "SELECT * FROM tbl_jobs WHERE category = :cate AND barangay LIKE :barangay ORDER BY enc_id DESC LIMIT $page1,12";
+$query2 = "SELECT * FROM tbl_jobs WHERE category = :cate AND barangay LIKE :barangay ORDER BY enc_id DESC";
 $fromsearch = true;
 
 $slc_barangay = "$barangay";
@@ -327,12 +327,13 @@ $title = "Job List";
 								require 'constants/db_config.php';
 								
 								try {
+									$search_barangay = '%'.$slc_barangay.'%';
                                 $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
                                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                                 $stmt = $conn->prepare($query1);
 								if ($fromsearch == true) {
 								$stmt->bindParam(':cate', $slc_category);
-                                $stmt->bindParam(':barangay', $slc_barangay);	
+                                $stmt->bindParam(':barangay', $search_barangay);	
 								}
                                 $stmt->execute();
                                 $result = $stmt->fetchAll();
@@ -397,8 +398,14 @@ $title = "Job List";
 													<div class="col-sm-5 col-md-4">
 														<ul class="meta-list">
 															<li>
-																<span>Barangay:</span>
-																<?php echo $row['barangay']; ?>
+																<span>Barangay(s):</span>
+																<?php 
+																	$barangays = json_decode($row['barangay']);
+																	if(count($barangays) < 2)
+																		echo $barangays[0]; 
+																	else	
+																		echo $barangays[0] . ' and ' . count($barangays) . ' more'; 
+																?>
 															</li>
 															<li>
 																<span>City:</span>

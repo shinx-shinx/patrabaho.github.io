@@ -323,7 +323,14 @@ $jobexpired = false;
 									<ul class="meta-list clearfix">
 										<li>
 											<h4 class="heading">Location:</h4>
-											<?php echo "$jobcity"; ?> , <?php echo "$jobbarangay"; ?>
+											<?php echo "$jobcity"; ?> , <?php
+													$barangays = json_decode($jobbarangay);
+													$i = 0;
+													echo $barangays[0] . ', ' . $barangays[1] ;
+													if(count($barangays) > 2){
+														echo ' and ' . (count($barangays) - 2) . 'more';
+													}
+											?>
 										</li>
 										<li>
 											<h4 class="heading">Deadline:</h4>

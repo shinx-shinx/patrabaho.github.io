@@ -271,10 +271,12 @@ foreach($result as $row)
 												</div>
 												
 												<div class="col-sm-4 col-md-4">
-												
+													<label id="selected-barangays"  class="hidden" ><?php echo $jobbarangay;?></label>
+													<input type="hidden" name="barangays" id="barangays">
 													<div class="form-group">
 														<label>Work Location</label>
-														<select name="barangay" required class="selectpicker show-tick form-control" data-live-search="true">
+														
+														<select multiple onchange="updateBarangay()" id="barangay" name="barangay" required class="selectpicker show-tick form-control" data-live-search="true">
 															<option disabled value="">Select</option>
 						                                   <?php
 														   require '../constants/db_config.php';
@@ -621,6 +623,16 @@ foreach($result as $row)
 <script type="text/javascript" src="../js/jquery.sheepItPlugin.js"></script>
 <script type="text/javascript" src="../js/customs-sheepItPlugin.js"></script>
 
+<script>
+	var new_val = JSON.parse($('#selected-barangays').text())
+	$('#barangay').val(new_val)
+	
+	$('#barangays').val(JSON.stringify($('#barangay').val()))
+	function updateBarangay() {
+		$('#barangays').val(JSON.stringify($('#barangay').val()))
+		console.log($('#barangay').val())
+	}
+</script>
 </body>
 
 </html>

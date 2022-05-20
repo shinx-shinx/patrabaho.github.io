@@ -498,7 +498,15 @@ include 'constants/check-login.php';
 							</div>
 							<div class="GridLex-col-5_xs-8_xss-12 mt-10-xss">
 							<div class="job-location">
-							<i class="fa fa-map-marker text-primary"></i> <?php echo "$jobbarangay" ?></strong> - <?php echo "$jobcity" ?>
+							<i class="fa fa-map-marker text-primary"></i>
+							 <?php
+							  		$barangays = json_decode($jobbarangay);
+									$i = 0;
+									echo $barangays[0] . ', ' . $barangays[1] ;
+									if(count($barangays) > 2){
+										echo ' and ' . (count($barangays) - 2) . 'more';
+									}
+							  ?></strong> - <?php echo "$jobcity" ?>
 							</div>
 							</div>
 							<div class="GridLex-col-2_xs-4_xss-12">

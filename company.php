@@ -347,8 +347,14 @@ $page = 1;
 														<div class="col-sm-5 col-md-4">
 														<ul class="meta-list">
 															<li>
-																<span>Barangay:</span>
-																<?php echo $row['barangay']; ?>
+																<span>Barangay(s):</span>
+																<?php 
+																	$barangays = json_decode($row['barangay']);
+																	if(count($barangays) < 2)
+																		echo $barangays[0]; 
+																	else	
+																		echo $barangays[0] . '...' . count($barangays) . 'more'; 
+																?>
 															</li>
 															<li>
 																<span>City:</span>

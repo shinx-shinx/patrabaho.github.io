@@ -51,7 +51,7 @@ jQuery(function($) {
 	});
 	
 	
-})(jQuery);
+});
 
 
 

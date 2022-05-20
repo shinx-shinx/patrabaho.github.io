@@ -230,10 +230,10 @@ header("location:../");
 												</div>
 												
 												<div class="col-sm-4 col-md-4">
-												
+													<input type="hidden" name="barangays" id="barangays">
 													<div class="form-group">
 														<label>Work Location</label>
-														<select multiple name="barangay" required class="selectpicker show-tick form-control" data-live-search="true">
+														<select multiple onchange="updateBarangay()" id="barangay" name="barangay" required class="selectpicker show-tick form-control" data-live-search="true">
 															<option disabled value="">Select</option>
 						                                   <?php
 														   require '../constants/db_config.php';
@@ -248,7 +248,7 @@ header("location:../");
   
                                                            foreach($result as $row)
                                                            {
-		                                                    ?> <option <?php if ($mybarangay == $row['barangay_name']) { print ' selected '; } ?> value="<?php echo $row['barangay_name']; ?>"><?php echo $row['barangay_name']; ?></option> <?php
+		                                                    ?> <option id="barangay-list" <?php if ($mybarangay == $row['barangay_name']) { print ' selected '; } ?> value="<?php echo $row['barangay_name']; ?>"><?php echo $row['barangay_name']; ?></option> <?php
 	 
 	                                                        }
 
@@ -584,6 +584,12 @@ header("location:../");
 <script type="text/javascript" src="../js/jquery.sheepItPlugin.js"></script>
 <script type="text/javascript" src="../js/customs-sheepItPlugin.js"></script>
 
+<script>
+	$('#barangays').val(JSON.stringify($('#barangay').val()))
+	function updateBarangay() {
+		$('#barangays').val(JSON.stringify($('#barangay').val()))
+	}
+</script>
 </body>
 
 </html>
