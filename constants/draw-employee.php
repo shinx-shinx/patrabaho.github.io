@@ -92,17 +92,17 @@
 <script>
   $('#employee').click(function() {
       if(document.getElementById('employee').checked) {
+        $('#acctype').val('102')
         $('#company-div').removeClass('hidden')
         $('#type-div').removeClass('hidden')
         $('#company').addAttr('required')
         $('#type').addAttr('required')  
-        $('#acctype').val("102")
       } else {
+        $('#acctype').val('101')
         $('#company-div').addClass('hidden')
         $('#type-div').addClass('hidden')
         $('#company').removeAttr('required')
         $('#type').removeAttr('required')
-        $('#acctype').val("101")
       }  
   });
 </script>

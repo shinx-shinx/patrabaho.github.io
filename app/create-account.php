@@ -59,7 +59,7 @@ function register() {
             VALUES (:fname, :lname, :email, :lastlogin, :login, :role, :memberno)";
         }
         else {
-            $role = array_push($role, 'employer');
+            array_push($role, 'employer');
             $queryString = "INSERT INTO tbl_users (first_name, last_name, email, last_login, login, role, member_no, company, title)
             VALUES (:fname, :lname, :email, :lastlogin, :login, :role, :memberno, :company, :title)";
         }
