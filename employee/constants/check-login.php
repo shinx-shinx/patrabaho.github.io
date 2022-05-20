@@ -20,7 +20,10 @@ $mydesc = $_SESSION['mydesc'];
 $myavatar = $_SESSION['avatar'];
 $mylogin = $_SESSION['lastlogin'];
 $myrole = $_SESSION['role'];
-	
+$mycompany = $_SESSION['company'];
+$employer = $_SESSION['employer'];
+$employee = $_SESSION['employee'];
+
 $user_online = true;	
 $myavatar = $_SESSION['avatar'];
 }else{

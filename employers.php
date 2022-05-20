@@ -230,7 +230,7 @@ $page = 1;
                             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 	
-                            $stmt = $conn->prepare("SELECT * FROM tbl_users WHERE role = 'employer' ORDER BY first_name LIMIT $page1,16");
+                            $stmt = $conn->prepare("SELECT * FROM tbl_users WHERE role LIKE '%employer%' ORDER BY company LIMIT $page1,16");
                             $stmt->execute();
                             $result = $stmt->fetchAll();
 
@@ -255,9 +255,10 @@ $page = 1;
 							</div>
 											
 							<div class="content">
-							<h5 class="heading text-primary font700"><?php echo $row['first_name'];?></h5>
+							<h5 class="heading text-primary font700"><?php echo $row['company'];?></h5>
 							<p class="texting font600"><?php echo $row['title'];?><p>
-							<p class="mata-p clearfix"><span class="text-primary font700">25</span> <span class="font13">Active job post(s)</span> <span class="pull-right icon"><i class="fa fa-long-arrow-right"></i></span></p>
+							<!-- <p class="mata-p clearfix"><span class="text-primary font700">25</span> <span class="font13">Active job post(s)</span> -->
+							 <span class="pull-right icon"><i class="fa fa-long-arrow-right"></i></span></p>
 							</div>
 										
 							</a>
@@ -296,7 +297,7 @@ $page = 1;
                             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 	
-                            $stmt = $conn->prepare("SELECT * FROM tbl_users WHERE role = 'employer' ORDER BY first_name");
+                            $stmt = $conn->prepare("SELECT * FROM tbl_users WHERE role LIKE '%employer%' ORDER BY company");
                             $stmt->execute();
                             $result = $stmt->fetchAll();
 

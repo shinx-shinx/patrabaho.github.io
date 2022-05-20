@@ -6,7 +6,7 @@ require '../constants/settings.php';
 require 'constants/check-login.php';
 
 if ($user_online == "true") {
-if ($myrole == "employer") {
+if ($employer == true) {
 }else{
 header("location:../");		
 }
@@ -224,7 +224,7 @@ header("location:../");
 												
 													<div class="form-group">
 														<label>City</label>
-														<input name="city" required type="text" class="form-control" placeholder="Enter city">
+														<input readonly name="city" required type="text" class="form-control" placeholder="Enter city" value="Calbayog">
 													</div>
 													
 												</div>
@@ -378,7 +378,7 @@ header("location:../");
 												
 													<div class="form-group bootstrap3-wysihtml5-wrapper">
 														<label>Job Description</label>
-														<textarea class="form-control bootstrap3-wysihtml5" name="description" required placeholder="Enter description ..." style="height: 200px;"></textarea>
+														<textarea class="form-control bootstrap3-wysihtml5" name="description" placeholder="Enter description ..." style="height: 200px;"></textarea>
 													</div>
 													
 												</div>
@@ -389,7 +389,7 @@ header("location:../");
 												
 													<div class="form-group bootstrap3-wysihtml5-wrapper">
 														<label>Job Responsibilies</label>
-														<textarea name="responsiblities" required class="form-control bootstrap3-wysihtml5" placeholder="Enter responsiblities..." style="height: 200px;"></textarea>
+														<textareaname="responsiblities"  class="form-control bootstrap3-wysihtml5" placeholder="Enter responsiblities..." style="height: 200px;"></textarea>
 													</div>
 													
 												</div>
@@ -400,7 +400,7 @@ header("location:../");
 												
 													<div class="form-group bootstrap3-wysihtml5-wrapper">
 														<label>Requirements</label>
-														<textarea name="requirements" required class="form-control bootstrap3-wysihtml5" placeholder="Enter requirements..." style="height: 200px;"></textarea>
+														<textarea name="requirements"  class="form-control bootstrap3-wysihtml5" placeholder="Enter requirements..." style="height: 200px;"></textarea>
 													</div>
 													
 												</div>
@@ -422,7 +422,7 @@ header("location:../");
 												<div class="clear"></div>
 												
 												<div class="col-sm-6 mt-30">
-													<button type="submit"  onclick = "validate(this)" class="btn btn-primary btn-lg">Post Your Job</button>
+													<button type="submit"  class="btn btn-primary btn-lg">Post Your Job</button>
 												</div>
 
 											</div>

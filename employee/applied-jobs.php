@@ -202,6 +202,13 @@ $page = 1;
 										<li>
 											<a href="./"><i class="fa fa-user"></i> Profile</a>
 										</li>
+										<?php 
+											if($employer == true){
+												echo '<li>
+													<a href="/employer/"><i class="fa fa-user"></i> My Company</a>
+												</li>' ;
+											}
+										?>
 										<li class="">
 										<a href="change-password.php"><i class="fa fa-key"></i> Change Password</a>
 										</li>
@@ -297,7 +304,7 @@ $page = 1;
 											  
 	                                }	
 									
-									$stmtc = $conn->prepare("SELECT * FROM tbl_users WHERE member_no = '$compid' AND role = 'employer'");
+									$stmtc = $conn->prepare("SELECT * FROM tbl_users WHERE member_no = '$compid' AND role LIKE '%employer%'");
                                     $stmtc->execute();
                                     $resultc = $stmtc->fetchAll();
 									

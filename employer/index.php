@@ -5,12 +5,12 @@ include '../constants/settings.php';
 include 'constants/check-login.php';
 
 if ($user_online == "true") {
-if ($myrole == "employer") {
+if ($employer == true) {
 }else{
-header("location:../");		
+// header("location:../");		
 }
 }else{
-header("location:../");	
+// header("location:../");	
 }
 ?>
 <head>
@@ -213,9 +213,13 @@ header("location:../");
 												
 													<div class="form-group">
 														<label>Employer Name</label>
-														<input name="company" placeholder="Enter company name" type="text" class="form-control" value="<?php echo "$compname"; ?>" required>
+														<input readonly placeholder="Enter company name" type="text" class="form-control" value="<?php echo "$myfname $mylname"; ?>">
 													</div>
 													
+													<div class="form-group">
+														<label>Company Name</label>
+														<input name="company" placeholder="Enter company name" type="text" class="form-control" value="<?php echo "$compname"; ?>" required>
+													</div>
 												</div>
 												<div class="clear"></div>
 												

@@ -388,10 +388,10 @@ $jobexpired = false;
 								if ($jobexpired == true) {
 								print '<button class="btn btn-primary disabled btn-hidden btn-lg collapsed"><i class="flaticon-line-icon-set-calendar"></i> This job is expired</button>';
 								}else{
-								if ($myrole == "employee") {
+								if ($emplyee == true && $compid != $myid) {
                                 print '<button';?> onclick="update(this.value)" <?php print ' value="'.$jobid.'" class="btn btn-primary btn-hidden btn-lg collapsed"><i class="flaticon-line-icon-set-pencil"></i> Apply this job</button>';
 								}else{
-								print '<button class="btn btn-primary disabled btn-hidden btn-lg collapsed"><i class="flaticon-line-icon-set-padlock"></i> Login as freelancer to apply</button>';
+								print '<button class="btn btn-primary disabled btn-hidden btn-lg collapsed"><i class="flaticon-line-icon-set-padlock"></i> Apply this job</button>';
 								}	
 								}
 

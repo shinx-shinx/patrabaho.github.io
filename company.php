@@ -16,7 +16,7 @@ $company_id = $_GET['ref'];
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 	
-    $stmt = $conn->prepare("SELECT * FROM tbl_users WHERE member_no = :memberno AND role = 'employer'");
+    $stmt = $conn->prepare("SELECT * FROM tbl_users WHERE member_no = :memberno AND role LIKE '%employer%'");
 	$stmt->bindParam(':memberno', $company_id);
     $stmt->execute();
     $result = $stmt->fetchAll();
@@ -29,7 +29,8 @@ $company_id = $_GET['ref'];
     foreach($result as $row)
     {
 		
-    $compname = $row['first_name'];
+    $compname = $row['company'];
+	$name = $row['first_name'] . ' ' . $row['last_name'];
 	$compesta = $row['byear'];
     $compmail  = $row['email'];
 	$comptype = $row['title'];
@@ -226,13 +227,14 @@ $page = 1;
 										if ($complogo == null) {
 										print '<center>Employer Profile</center>';
 										}else{
-										echo '<center><img alt="image" title="'.$compname.'" width="180" height="100" src="data:image/jpeg;base64,'.base64_encode($complogo).'"/></center>';	
+										echo '<center><img alt="image" title="'.$compname.'" width="180" height="100" src="data:image/jpeg;base64,'.base64_encode($complogo).'"/></center>';
+											
 										}
 										?>
 										</div>
 										
 										<h2 class="heading mb-15"><?php echo "$compname"; ?></h2>
-									
+										<small class="heading mb-15"><?php echo "$name"; ?></small>
 										<p class="location"><i class="fa fa-map-marker"></i> <?php echo "$compzip"; ?> <?php echo "$compcity"; ?>. <?php echo "$compstreet"; ?>, <?php echo "$compbarangay"; ?> <span class="mh-5">|</span> <i class="fa fa-phone"></i> <?php echo "$compphone"; ?></p>
 										
 										<ul class="meta-list clearfix">

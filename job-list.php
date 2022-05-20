@@ -344,12 +344,12 @@ $title = "Job List";
 								$type = $row['type'];
 								$compid = $row['company'];
 								
-								$stmtb = $conn->prepare("SELECT * FROM tbl_users WHERE member_no = '$compid' and role = 'employer'");
+								$stmtb = $conn->prepare("SELECT * FROM tbl_users WHERE member_no = '$compid' and role LIKE '%employer%'");
                                 $stmtb->execute();
                                 $resultb = $stmtb->fetchAll();
                                 foreach($resultb as $rowb) {
 								$complogo = $rowb['avatar'];
-								$thecompname = $rowb['first_name'];	
+								$thecompname = $rowb['company'];	
 									
 								}
 								if ($type == "Freelance") {

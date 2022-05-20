@@ -6,7 +6,7 @@ require '../constants/settings.php';
 require 'constants/check-login.php';
 
 if ($user_online == "true") {
-if ($myrole == "employer") {
+if ($employer == true) {
 }else{
 header("location:../");		
 }
@@ -44,7 +44,9 @@ foreach($result as $row)
 	$jobdescription = $row['description'];
 	$jobrespo = $row['responsibility'];
 	$jobreq = $row['requirements'];
-	$closingdate = $row['closing_date'];		
+	$closingdate = $row['closing_date'];	
+	$salarytype = $row['salarytype'];
+	$salary = $row['salary'];	
 }
 
 }
@@ -263,7 +265,7 @@ foreach($result as $row)
 												
 													<div class="form-group">
 														<label>City</label>
-														<input name="city" value="<?php echo "$jobcity"; ?>"  required type="text" class="form-control" placeholder="Enter city">
+														<input readonly name="city" value="Calbayog"  required type="text" class="form-control" placeholder="Enter city">
 													</div>
 													
 												</div>
@@ -391,11 +393,11 @@ foreach($result as $row)
 												
 													<div class="form-group">
 														<label>Salary Type:</label>
-														<select name="salarytype" required class="selectpicker show-tick form-control" data-live-search="false" data-selected-text-format="count > 3" data-done-button="true" data-done-button-text="OK" data-none-selected-text="All">
+														<select selected name="salarytype" required class="selectpicker show-tick form-control" data-live-search="false" data-selected-text-format="count > 3" data-done-button="true" data-done-button-text="OK" data-none-selected-text="All">
 															<option value="" selected >Select</option>
-															<option <?php if ($jobsalarytype == "Expert") { print ' selected '; } ?> value="Daily">Daily</option>
-															<option <?php if ($jobsalarytype == "Expert") { print ' selected '; } ?> value="Weekly">Weekly</option>
-															<option <?php if ($jobsalarytype == "Expert") { print ' selected '; } ?> value="Monthly">Monthly</option>
+															<option <?php if ($salarytype == "Daily") { print ' selected '; } ?> value="Daily">Daily</option>
+															<option <?php if ($salarytype == "Weekly") { print ' selected '; } ?> value="Weekly">Weekly</option>
+															<option <?php if ($salarytype == "Monthly") { print ' selected '; } ?> value="Monthly">Monthly</option>
 															
 														</select>
 													</div>
@@ -405,7 +407,7 @@ foreach($result as $row)
 												<div class="col-sm-4 col-md-4">
 													<div class="form-group">
 															<label>Salary</label>
-															<input name="salary" required type="text" class="form-control" placeholder="Enter salary">
+															<input value="<?php echo $salary ?>" name="salary" required type="text" class="form-control" placeholder="Enter salary" >
 														</div>
 												</div>
 
@@ -416,7 +418,7 @@ foreach($result as $row)
 												
 													<div class="form-group bootstrap3-wysihtml5-wrapper">
 														<label>Job Description</label>
-														<textarea class="form-control bootstrap3-wysihtml5" name="description" required placeholder="Enter description ..." style="height: 200px;"><?php echo "$jobdescription"; ?></textarea>
+														<textarea class="form-control bootstrap3-wysihtml5" name="description" placeholder="Enter description ..." style="height: 200px;"><?php echo "$jobdescription"; ?></textarea>
 													</div>
 													
 												</div>
@@ -427,7 +429,7 @@ foreach($result as $row)
 												
 													<div class="form-group bootstrap3-wysihtml5-wrapper">
 														<label>Job Responsibilies</label>
-														<textarea name="responsiblities" required class="form-control bootstrap3-wysihtml5" placeholder="Enter responsiblities..." style="height: 200px;"><?php echo "$jobrespo"; ?></textarea>
+														<textarea name="responsiblities" class="form-control bootstrap3-wysihtml5" placeholder="Enter responsiblities..." style="height: 200px;"><?php echo "$jobrespo"; ?></textarea>
 													</div>
 													
 												</div>
@@ -438,7 +440,7 @@ foreach($result as $row)
 												
 													<div class="form-group bootstrap3-wysihtml5-wrapper">
 														<label>Requirements</label>
-														<textarea name="requirements" required class="form-control bootstrap3-wysihtml5" placeholder="Enter requirements..." style="height: 200px;"><?php echo "$jobreq"; ?></textarea>
+														<textarea name="requirements" class="form-control bootstrap3-wysihtml5" placeholder="Enter requirements..." style="height: 200px;"><?php echo "$jobreq"; ?></textarea>
 													</div>
 													<input type="hidden" name="jobid" value="<?php echo "$jobid"; ?>">
 												</div>

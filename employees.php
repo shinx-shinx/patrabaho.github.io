@@ -211,7 +211,7 @@ $page = 1;
 							try {
                             $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
                             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                            $stmt = $conn->prepare("SELECT * FROM tbl_users WHERE role = 'employee' ORDER BY first_name LIMIT $page1,16");
+                            $stmt = $conn->prepare("SELECT * FROM tbl_users WHERE role LIKE '%employee%' ORDER BY first_name LIMIT $page1,16");
                             $stmt->execute();
                             $result = $stmt->fetchAll();
                             foreach($result as $row)
@@ -303,7 +303,7 @@ $page = 1;
                             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 	
-                            $stmt = $conn->prepare("SELECT * FROM tbl_users WHERE role = 'employee' ORDER BY first_name");
+                            $stmt = $conn->prepare("SELECT * FROM tbl_users WHERE role LIKE '%employee% ORDER BY first_name");
                             $stmt->execute();
                             $result = $stmt->fetchAll();
 

@@ -202,6 +202,13 @@ $page = 1;
 										<li>
 											<a href="./"><i class="fa fa-user"></i> Profile</a>
 										</li>
+										<?php 
+											if($employer == true){
+												echo '<li>
+													<a href="/employer/"><i class="fa fa-user"></i> My Company</a>
+												</li>' ;
+											}
+										?>
 										<li class="">
 										<a href="change-password.php"><i class="fa fa-key"></i> Change Password</a>
 										</li>

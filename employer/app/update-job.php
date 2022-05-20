@@ -41,7 +41,7 @@ header("location:../edit-job.php?r=0369&jobid=$job_id");
 					  
 }catch(PDOException $e)
 {
-
+    echo $e->getMessage();
 }
 	
 ?>

@@ -56,24 +56,25 @@
 <input class="form-control" placeholder="Re-type password again" name="confirmpassword" required type="password"> 
 </div>
 
-
 <div class="form-group"> 
-<label>Employer Name</label>
-<input class="form-control" placeholder="Enter your company name" name="company" required type="text"> 
-</div>
-												
+<input type="checkbox" id="employee" name="employer" value="employer">
+  <label for="employee"> Im also an employer</label>
 </div>
 
-<div class="col-sm-12 col-md-12">
+<div class="form-group hidden" id="company-div"> 
+<label>Company Name</label>
+<input class="form-control" placeholder="Enter your company name" name="company" type="text" id="company"> 
+</div>
+											
 
-<div class="form-group"> 
+<div class="form-group hidden" id="type-div"> 
 <label>Employer Type</label>
-<input class="form-control" placeholder="Eg: Result-producer, Businessman etc" name="type" required type="text"> 
+<input class="form-control" placeholder="Eg: Result-producer, Businessman etc" name="type" type="text" id="type"> 
 </div>
 
 </div>
 												
-<input type="hidden" name="acctype" value="101">
+<input type="hidden" name="acctype" value="101" id="acctype">
 												
 												
 </div>
@@ -86,3 +87,22 @@
 										
 </div>
 </form>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+  $('#employee').click(function() {
+      if(document.getElementById('employee').checked) {
+        $('#company-div').removeClass('hidden')
+        $('#type-div').removeClass('hidden')
+        $('#company').addAttr('required')
+        $('#type').addAttr('required')  
+        $('#acctype').val("102")
+      } else {
+        $('#company-div').addClass('hidden')
+        $('#type-div').addClass('hidden')
+        $('#company').removeAttr('required')
+        $('#type').removeAttr('required')
+        $('#acctype').val("101")
+      }  
+  });
+</script>

@@ -359,7 +359,7 @@ include 'constants/check-login.php';
                     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
                     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-                    $stmt = $conn->prepare("SELECT * FROM tbl_users WHERE role = 'employer' ORDER BY rand() LIMIT 8");
+                    $stmt = $conn->prepare("SELECT * FROM tbl_users WHERE role LIKE '%employer%' ORDER BY rand() LIMIT 8");
                     $stmt->execute();
                     $result = $stmt->fetchAll();
 
@@ -378,7 +378,7 @@ include 'constants/check-login.php';
 					}
 					?>
 					</div>
-					<h6><?php echo $row['first_name'];?></h6>
+					<h6><?php echo $row['company'];?></h6>
 					<a target="_blank" href="company.php?ref=<?php echo $row['member_no']. '&rating=all'; ?>">View Company</a>
 					</div>
 							
@@ -449,12 +449,12 @@ include 'constants/check-login.php';
                             $post_month = date_format(date_create_from_format('d/m/Y', $closingdate), 'F');
                             $post_year = date_format(date_create_from_format('d/m/Y', $closingdate), 'Y');
 										   
-							$stmtb = $conn->prepare("SELECT * FROM tbl_users WHERE member_no = '$company_id' and role = 'employer'");
+							$stmtb = $conn->prepare("SELECT * FROM tbl_users WHERE member_no = '$company_id' and role LIKE '%employer%'");
                             $stmtb->execute();
                             $resultb = $stmtb->fetchAll();
 							foreach($resultb as $rowb) {
 							$complogo = $rowb['avatar'];
-							$thecompname = $rowb['first_name'];	
+							$thecompname = $rowb['company'];	
 								
 							}
 							

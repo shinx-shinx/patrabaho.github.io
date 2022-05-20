@@ -5,7 +5,7 @@ require '../constants/settings.php';
 require 'constants/check-login.php';
 
 if ($user_online == "true") {
-if ($myrole == "employer") {
+if ($employer == true) {
 }else{
 header("location:../");		
 }

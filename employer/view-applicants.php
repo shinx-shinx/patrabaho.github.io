@@ -19,7 +19,7 @@ $page = 1;
 }
 
 if ($user_online == "true") {
-if ($myrole == "employer") {
+if ($employer == true) {
 }else{
 header("location:../");		
 }
@@ -221,7 +221,7 @@ $job_title = $row['title'];
                             $post_year = date_format(date_create_from_format('m/d/Y', $row['application_date']), 'Y');
                             $emp_id = $row['member_no'];
 							
-							$stmtb = $conn->prepare("SELECT * FROM tbl_users WHERE role = 'employee' AND member_no = '$emp_id'");
+							$stmtb = $conn->prepare("SELECT * FROM tbl_users WHERE role LIKE '%employee%' AND member_no = '$emp_id'");
                             $stmtb->execute();
                             $resultb = $stmtb->fetchAll();
 							

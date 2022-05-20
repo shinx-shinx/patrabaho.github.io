@@ -12,7 +12,7 @@ try {
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 	
-    $stmt = $conn->prepare("SELECT * FROM tbl_users WHERE role = 'employee' AND member_no = :empid");
+    $stmt = $conn->prepare("SELECT * FROM tbl_users WHERE role LIKE '%employee%' AND member_no = :empid");
 	$stmt->bindParam(':empid', $empid);
     $stmt->execute();
     $result = $stmt->fetchAll();
