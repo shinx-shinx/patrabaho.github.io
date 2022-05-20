@@ -10,6 +10,8 @@ if (isset($_GET['jobid'])) {
 $jobid = $_GET['jobid'];
 
 try {
+	echo '--';
+
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -55,6 +57,16 @@ try {
 	
 	}
 	}
+
+	$stmt2 = $conn->prepare("SELECT * FROM tbl_job_applications WHERE job_id = :jobid AND member_no = :member_no");
+	$stmt2->bindParam(':jobid', $jobid);
+	$stmt2->bindParam(':member_no', $_SESSION['myid']);
+    $stmt2->execute();
+    $applications = $stmt2->fetchAll();
+
+	if(count($applications) > 0) {
+		$is_applied = true; 
+	} 
 
 					  
 	}catch(PDOException $e)
@@ -323,7 +335,7 @@ $jobexpired = false;
 									<ul class="meta-list clearfix">
 										<li>
 											<h4 class="heading">Location:</h4>
-											<?php echo "$jobcity"; ?> , <?php
+											<?php echo "$jobcity"; ?>  - <?php
 													$barangays = json_decode($jobbarangay);
 													$i = 0;
 													echo $barangays[0] . ', ' . $barangays[1] ;
@@ -395,7 +407,7 @@ $jobexpired = false;
 								if ($jobexpired == true) {
 								print '<button class="btn btn-primary disabled btn-hidden btn-lg collapsed"><i class="flaticon-line-icon-set-calendar"></i> This job is expired</button>';
 								}else{
-								if ($emplyee == true && $compid != $myid) {
+								if ($_SESSION['employee'] == true && $compid != $_SESSION['myid'] && !$is_applied) {
                                 print '<button';?> onclick="update(this.value)" <?php print ' value="'.$jobid.'" class="btn btn-primary btn-hidden btn-lg collapsed"><i class="flaticon-line-icon-set-pencil"></i> Apply this job</button>';
 								}else{
 								print '<button class="btn btn-primary disabled btn-hidden btn-lg collapsed"><i class="flaticon-line-icon-set-padlock"></i> Apply this job</button>';

@@ -322,7 +322,7 @@ $page = 1;
 											<div class="image">
 											<?php 
 										    if ($complogo == null) {
-										    print '<center><img class="autofit3" alt="image"  src="images/blank.png"/></center>';
+										    print '<center><img class="autofit3" alt="image"  src="/images/blank.png"/></center>';
 										    }else{
 										    echo '<center><img class="autofit3" alt="image" title="'.$compname.'" width="180" height="100" src="data:image/jpeg;base64,'.base64_encode($complogo).'"/></center>';	
 										    }
@@ -336,7 +336,14 @@ $page = 1;
 									</div>
 									<div class="GridLex-col-3_xs-8_xss-12 mt-10-xss">
 										<div class="job-location">
-											<i class="fa fa-map-marker text-primary"></i> <?php echo "$jobbarangay"; ?>
+											<i class="fa fa-map-marker text-primary"></i> <?php
+												$barangays = json_decode($jobbarangay);
+												$i = 0;
+												echo $barangays[0] . ', ' . $barangays[1] ;
+												if(count($barangays) > 2){
+													echo ' and ' . (count($barangays) - 2) . 'more';
+												}
+											?>
 										</div>
 									</div>
 									<div class="GridLex-col-3_xs-4_xss-12">

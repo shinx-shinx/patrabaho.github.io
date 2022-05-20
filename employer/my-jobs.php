@@ -282,7 +282,16 @@ $page = 1;
 														
 											<div class="content">
 											<h4 class="heading"><?php echo "$title"; ?></h4>
-											<p class="location"><i class="fa fa-map-marker text-primary"></i> <strong class="text-primary"><?php echo "$jobbarangay" ?></strong> - <?php echo "$jobcity" ?></p>
+											<p class="location"><i class="fa fa-map-marker text-primary"></i> <strong class="text-primary">
+											<?php
+													$barangays = json_decode($jobbarangay);
+													$i = 0;
+													echo $barangays[0] . ', ' . $barangays[1] ;
+													if(count($barangays) > 2){
+														echo ' and ' . (count($barangays) - 2) . 'more';
+													}
+											?>
+											</strong> - <?php echo "$jobcity" ?></p>
 											<p class="date text-muted font12 font-italic">Deadline - <?php echo "$deadline"; ?></p>
 											</div>
 															
