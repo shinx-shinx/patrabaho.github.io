@@ -236,7 +236,7 @@ $page = 1;
 
                             foreach($result as $row)
                             {
-		                    $complogo = $row['comapany_logo'];
+		                    $complogo = $row['company_logo'];
 							?>
 							<div class="GridLex-col-3_sm-4_xs-6_xss-12">
 								
