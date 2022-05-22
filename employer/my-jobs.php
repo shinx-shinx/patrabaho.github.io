@@ -187,6 +187,9 @@ $page = 1;
 										<li >
 											<a href="./"><i class="fa fa-user"></i> Profile</a>
 										</li>
+										<li  class="">
+											<a href="./employee"><i class="fa fa-user"></i>Personal Profile</a>
+										</li>
 										<li class="">
 										<a href="change-password.php"><i class="fa fa-key"></i> Change Password</a>
 										</li>

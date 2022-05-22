@@ -171,7 +171,10 @@ if ($employer == true) {
 									
 									<ul class="admin-user-menu clearfix">
 										<li  class="active">
-											<a href="./"><i class="fa fa-user"></i> Profile</a>
+											<a href="./"><i class="fa fa-user"></i>Company Profile</a>
+										</li>
+										<li  class="">
+											<a href="./employee"><i class="fa fa-user"></i>Personal Profile</a>
 										</li>
 										<li class="">
 										<a href="change-password.php"><i class="fa fa-key"></i> Change Password</a>
