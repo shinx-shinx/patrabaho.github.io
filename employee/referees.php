@@ -204,7 +204,9 @@ $page = 1;
 										<?php 
 											if($employer == true){
 												echo '<li>
-													<a href="/employer/"><i class="fa fa-user"></i> My Company</a>
+												<a href="/employer/"><i class="fa fa-user"></i>
+													<span data-toggle="tooltip"  data-placement="top" title="Create Company">My Company</span>
+												</a>
 												</li>' ;
 											}
 										?>

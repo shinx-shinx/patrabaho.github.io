@@ -92,7 +92,9 @@ include 'constants/check-login.php';
 							</li>
 							
 							<li>
-								<a href="job-list.php">Job List</a>
+								<a href="job-list.php">
+									Job List
+								</a>
 
 							</li>
 							
@@ -170,7 +172,7 @@ include 'constants/check-login.php';
 
 		<div class="main-wrapper">
 		
-			<div class="hero" style="background-image:url('images/hero-header/homecover.jpeg');">
+			<div class="hero" style="background-image:url('images/hero-header/homecover.jpeg'); background-position: top;">
 				<div class="container">
 
 					<h1>Looking for a job?</h1>
